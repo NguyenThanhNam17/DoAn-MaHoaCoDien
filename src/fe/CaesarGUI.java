@@ -4,6 +4,10 @@
  */
 package fe;
 
+import be.CaesarCipher;
+
+
+
 /**
  *
  * @author thanh
@@ -49,10 +53,38 @@ public class CaesarGUI extends javax.swing.JFrame {
         jLabel1.setText("key");
 
         btnEncode.setText("Encryption");
+        btnEncode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEncodeActionPerformed(evt);
+            }
+        });
+
+        txtPlaintext1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPlaintext1ActionPerformed(evt);
+            }
+        });
+
+        txtPlaintext2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPlaintext2ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("key");
 
+        txtKey2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtKey2ActionPerformed(evt);
+            }
+        });
+
         btnDeCode.setText("Decryption");
+        btnDeCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeCodeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -104,6 +136,41 @@ public class CaesarGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEncodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncodeActionPerformed
+        String plaintext = txtPlaintext1.getText();
+         String shiftText = txtKey1.getText();  
+         int shift = Integer.parseInt(shiftText);
+         
+         String ciphertext = CaesarCipher.encrypt(plaintext, shift);
+         
+         txtPlaintext2.setText(ciphertext);
+         
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEncodeActionPerformed
+
+    private void txtPlaintext1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPlaintext1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPlaintext1ActionPerformed
+
+    private void txtPlaintext2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPlaintext2ActionPerformed
+                // TODO add your handling code here:
+    }//GEN-LAST:event_txtPlaintext2ActionPerformed
+
+    private void btnDeCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeCodeActionPerformed
+        String plaintext = txtPlaintext1.getText();
+        String shiftText = txtKey2.getText();
+        int shift = Integer.parseInt(shiftText);
+        
+        String ciphertext = CaesarCipher.decrypt(plaintext, shift);
+        txtPlaintext2.setText(ciphertext);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDeCodeActionPerformed
+
+    private void txtKey2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtKey2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtKey2ActionPerformed
 
     /**
      * @param args the command line arguments
