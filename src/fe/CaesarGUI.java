@@ -4,6 +4,8 @@
  */
 package fe;
 
+import be.Caesar;
+
 /**
  *
  * @author thanh
@@ -49,6 +51,17 @@ public class CaesarGUI extends javax.swing.JFrame {
         jLabel1.setText("key");
 
         btnEncode.setText("Encryption");
+        btnEncode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEncodeActionPerformed(evt);
+            }
+        });
+
+        txtPlaintext2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPlaintext2ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("key");
 
@@ -104,6 +117,21 @@ public class CaesarGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEncodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncodeActionPerformed
+        String Plaintext = txtPlaintext1.getText();
+       
+        int Key = Integer.parseInt(txtKey1.getText());
+        
+        String p =  Caesar.encrypt(Plaintext,Key);
+        
+        txtPlaintext2.setText(p);
+
+    }//GEN-LAST:event_btnEncodeActionPerformed
+
+    private void txtPlaintext2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPlaintext2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPlaintext2ActionPerformed
 
     /**
      * @param args the command line arguments

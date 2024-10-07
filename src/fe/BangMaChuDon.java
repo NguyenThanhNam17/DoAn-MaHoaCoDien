@@ -47,6 +47,11 @@ public class BangMaChuDon extends javax.swing.JFrame {
         btnRamDomKey.setText("RamDomKey");
 
         txtPlainText1.setText("jTextField4");
+        txtPlainText1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPlainText1ActionPerformed(evt);
+            }
+        });
 
         txtRESult.setText("jTextField5");
 
@@ -117,6 +122,10 @@ public class BangMaChuDon extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtPlainText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPlainText1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPlainText1ActionPerformed
 
     /**
      * @param args the command line arguments
