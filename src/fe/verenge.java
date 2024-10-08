@@ -4,6 +4,8 @@
  */
 package fe;
 
+import be.Vigenere;
+
 /**
  *
  * @author Bquynh
@@ -45,17 +47,23 @@ public class verenge extends javax.swing.JFrame {
 
         jLabel2.setText("key generation");
 
-        txtPlainText1.setText("jTextField3");
-
         btnEnCryp.setText("Encyrp");
-
-        txtPlainText2.setText("jTextField4");
+        btnEnCryp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnCrypActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Key");
 
         jLabel4.setText("Key Generation ");
 
         btnDeCryp.setText("DeCryp");
+        btnDeCryp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeCrypActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -71,13 +79,10 @@ public class verenge extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnEnCryp)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEnCryp)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtKeyGen1)
@@ -127,6 +132,22 @@ public class verenge extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEnCrypActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnCrypActionPerformed
+        // TODO add your handling code here:
+        String key = Vigenere.extendKey(txtPlainText1.getText(),txtKey1.getText());
+        String Encrypt = Vigenere.encrypt(txtPlainText1.getText(), key);
+        txtPlainText2.setText(Encrypt);
+        txtKeyGen1.setText(key);
+    }//GEN-LAST:event_btnEnCrypActionPerformed
+
+    private void btnDeCrypActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeCrypActionPerformed
+        // TODO add your handling code here:
+         String key = Vigenere.extendKey(txtPlainText2.getText(),txtKey2.getText());
+        String Decrypt = Vigenere.decrypt(txtPlainText1.getText(), key);
+        txtPlainText2.setText(Decrypt);
+        txtKeyGen2.setText(key);
+    }//GEN-LAST:event_btnDeCrypActionPerformed
 
     /**
      * @param args the command line arguments

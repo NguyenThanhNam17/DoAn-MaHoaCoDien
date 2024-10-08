@@ -66,6 +66,11 @@ public class CaesarGUI extends javax.swing.JFrame {
         jLabel2.setText("key");
 
         btnDeCode.setText("Decryption");
+        btnDeCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeCodeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -132,6 +137,15 @@ public class CaesarGUI extends javax.swing.JFrame {
     private void txtPlaintext2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPlaintext2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPlaintext2ActionPerformed
+
+    private void btnDeCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeCodeActionPerformed
+        // TODO add your handling code here:
+        String plaintext = txtPlaintext1.getText();
+        String KeyText = txtKey2.getText();
+        int key = Integer.parseInt(KeyText);
+        String DeCode = Caesar.decrypt(plaintext, key);
+        txtPlaintext2.setText(DeCode);
+    }//GEN-LAST:event_btnDeCodeActionPerformed
 
     /**
      * @param args the command line arguments

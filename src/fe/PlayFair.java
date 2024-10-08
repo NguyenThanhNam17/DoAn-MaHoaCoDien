@@ -4,6 +4,8 @@
  */
 package fe;
 
+import be.Playfair;
+
 /**
  *
  * @author Bquynh
@@ -43,12 +45,27 @@ public class PlayFair extends javax.swing.JFrame {
         jLabel1.setText("key");
 
         btnGenKEy.setText("Generate key");
+        btnGenKEy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenKEyActionPerformed(evt);
+            }
+        });
 
         btnEnCode.setText("Encryp");
+        btnEnCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnCodeActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("key");
 
         btnDeCode.setText("DeCryp");
+        btnDeCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeCodeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -119,6 +136,36 @@ public class PlayFair extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnGenKEyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenKEyActionPerformed
+       if(!"".equals(txtKey1.getText())){
+        String keyText = txtKey1.getText();
+        String keyGeneration = Playfair.prepareKey(keyText);
+        txtReSult1.setText(keyGeneration);
+       }if(!"".equals(txtkey2.getText())){
+         String keyText2 = txtkey2.getText();
+        String keyGeneration2 = Playfair.prepareKey(keyText2);      
+        txtReSult2.setText(keyGeneration2);}
+
+    }//GEN-LAST:event_btnGenKEyActionPerformed
+
+    private void btnEnCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnCodeActionPerformed
+            String plainText = txtPlainText1.getText();
+            String key = txtKey1.getText();
+            String result = Playfair.encrypt(plainText,key);
+            txtPlainText2.setText(result);
+            
+            
+           
+    }//GEN-LAST:event_btnEnCodeActionPerformed
+
+    private void btnDeCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeCodeActionPerformed
+        
+       String plaintext = txtPlainText1.getText();
+       String Key = txtkey2.getText();
+       String dcryb = Playfair.decrypt(plaintext, Key);
+       txtPlainText2.setText(dcryb);
+    }//GEN-LAST:event_btnDeCodeActionPerformed
 
     /**
      * @param args the command line arguments
