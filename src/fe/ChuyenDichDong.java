@@ -4,6 +4,9 @@
  */
 package fe;
 
+import static be.ChuyenDichDong.shiftText;
+import static be.ChuyenDichDong.shiftLines;
+
 /**
  *
  * @author Bquynh
@@ -43,10 +46,20 @@ public class ChuyenDichDong extends javax.swing.JFrame {
         jLabel1.setText("Key");
 
         btnEnCryp.setText("EnCryp");
+        btnEnCryp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnCrypActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("key");
 
         btnDeCode.setText("Decryp");
+        btnDeCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeCodeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,6 +118,22 @@ public class ChuyenDichDong extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEnCrypActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnCrypActionPerformed
+        // TODO add your handling code here:
+         String inputText = txtPlainText.getText();   // Lấy văn bản từ txtKey
+         int key = Integer.parseInt(txtKey1.getText());//lấy key và chuyển đổi qua kiểu int
+        String encodedText = shiftText(inputText, key);  // Gọi hàm mã hóa với dịch chuyển 3 vị trí
+        txtReSult.setText(encodedText);   // Hiển thị kết quả lên txtEncodedText
+    }//GEN-LAST:event_btnEnCrypActionPerformed
+
+    private void btnDeCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeCodeActionPerformed
+        // TODO add your handling code here:
+        String PlainText = txtPlainText.getText();
+        int key = Integer.parseInt(txtKey2.getText());
+        String decodeText = shiftLines(PlainText,key);
+        txtReSult.setText(decodeText);
+    }//GEN-LAST:event_btnDeCodeActionPerformed
 
     /**
      * @param args the command line arguments

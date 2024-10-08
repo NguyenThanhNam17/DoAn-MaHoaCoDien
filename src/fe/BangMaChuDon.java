@@ -10,6 +10,18 @@ package fe;
  */
 public class BangMaChuDon extends javax.swing.JFrame {
 
+    private static String encode(String PlainText) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private static String encrypt(String PlainText) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private static void generateKey() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     /**
      * Creates new form BangMaChuDon
      */
@@ -45,17 +57,24 @@ public class BangMaChuDon extends javax.swing.JFrame {
         jLabel1.setText("key");
 
         btnRamDomKey.setText("RamDomKey");
+        btnRamDomKey.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRamDomKeyActionPerformed(evt);
+            }
+        });
 
-        txtPlainText1.setText("jTextField4");
         txtPlainText1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPlainText1ActionPerformed(evt);
             }
         });
 
-        txtRESult.setText("jTextField5");
-
         btnENCryp.setText("Encryption");
+        btnENCryp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnENCrypActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("key");
 
@@ -126,6 +145,19 @@ public class BangMaChuDon extends javax.swing.JFrame {
     private void txtPlainText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPlainText1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPlainText1ActionPerformed
+
+    private void btnENCrypActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnENCrypActionPerformed
+        // TODO add your handling code here:
+        String PlainText = txtPlainText1.getText();
+        String encode = BangMaChuDon.encrypt(PlainText);
+        txtRESult.setText(encode);
+    }//GEN-LAST:event_btnENCrypActionPerformed
+
+    private void btnRamDomKeyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRamDomKeyActionPerformed
+        // TODO add your handling code here:
+    
+       
+    }//GEN-LAST:event_btnRamDomKeyActionPerformed
 
     /**
      * @param args the command line arguments
